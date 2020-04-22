@@ -41,7 +41,6 @@ class BooksApp extends React.Component {
       } else {
           BooksAPI.search(searchTerms)
             .then((searchBooks) => {
-                console.log(searchBooks)
                 if (!searchBooks || searchBooks.error) {
                     this.setState(() => ({
                         searchBooks: []
@@ -51,7 +50,7 @@ class BooksApp extends React.Component {
                         .filter((b) => {
                             return b.authors && b.imageLinks
                         })
-                        .map((filterBook) => (
+                    resultBooks.map((filterBook) => (
                             this.state.books.forEach((book) => {
                                 if (filterBook.id === book.id) {
                                     filterBook.shelf = book.shelf

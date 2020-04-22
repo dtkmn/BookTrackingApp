@@ -28,18 +28,23 @@ class SearchBook extends Component {
                 </div>
                 <div className="search-books-results">
                   <ol className="books-grid">
+
                       { books.length === 0 && (
                           <span>No results</span>
                       )}
-                      { books
-                          .map((book) => (
-                            <li key={book.id}>
-                              <Book
-                                onUpdateBook={onUpdateBook}
-                                bookInfo={book}
-                              />
-                            </li>
-                          ))}
+
+                      {
+                          books
+                            .map((book) => (
+                                <li key={book.id}>
+                                  <Book
+                                    onUpdateBook={onUpdateBook}
+                                    bookInfo={book}
+                                  />
+                                </li>
+                            ))
+                      }
+
                   </ol>
                 </div>
             </div>
