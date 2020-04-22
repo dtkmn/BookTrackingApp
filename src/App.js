@@ -15,6 +15,9 @@ class BooksApp extends React.Component {
       this.getBooks()
   }
 
+  /**
+  * @description Get list of books from backend and store the result in books state
+  */
   getBooks = () => {
       BooksAPI.getAll()
         .then((books) => {
@@ -26,6 +29,10 @@ class BooksApp extends React.Component {
         })
   }
 
+  /**
+  * @description Search the books from backend based on query and store in searchBooks state
+  * @param {string} searchTerms - the search query to backend
+  */
   searchBook = (searchTerms) => {
       if (searchTerms.trim().length === 0) {
           this.setState(() => ({
@@ -59,12 +66,19 @@ class BooksApp extends React.Component {
       }
   }
 
+  /**
+  * @description Update the shelf for specific book on backend
+  * @param {object} book
+  * @param {string} shelfValue
+  */
   updateBook = (book, shelfValue) => {
       BooksAPI.update(book, shelfValue)
         .then((response) => {
             this.getBooks()
         })
   }
+
+
 
   render() {
 
